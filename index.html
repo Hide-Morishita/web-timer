@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebTimer</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="timer.js"></script>
+  </head>
+  <body>
+    <h3 class="free-time">Web_Timer</h3>
+    <div class="time-view">
+      <div class="free-block">
+        <input
+          type="text"
+          placeholder="00"
+          class="free-timer"
+          autofocus="true"
+          id="free-min"
+        />
+        <span class="free">:</span>
+        <input type="text" placeholder="00" class="free-timer" id="free-sec" />
+      </div>
+      <div class="min-sec">
+        <button value="10" id="min-10" class="add-btn">10分</button>
+        <button value="5" id="min-5" class="add-btn">5分</button>
+        <button value="1" id="min-1" class="add-btn">1分</button>
+      </div>
+      <div class="free-box">
+        <input type="button" value="start" id="free-start" />
+        <input type="button" value="stop" disabled="" id="free-stop" />
+        <input type="button" value="reset" disabled="" id="free-reset" />
+      </div>
+    </div>
+  </body>
+</html>
