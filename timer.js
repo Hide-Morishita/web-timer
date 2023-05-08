@@ -1,5 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
-  //各要素の取得
+  //free_timer
   const inputMin = document.getElementById("free-min")
   const inputSec = document.getElementById("free-sec")
   const freeStart = document.getElementById("free-start")
@@ -135,9 +135,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // カウントダウン処理
     const freeCount = () => {
-      
       // ストップボタンを押したときの処理
       freeStop.addEventListener("click", () => {
+        // スタートボタンを押したときの色の切り替え
         freeStart.setAttribute("style", "color: #fff;")
         freeStop.setAttribute("style", "color: #b84c00;")
         freeReset.setAttribute("style", "color: #fff;")
@@ -154,10 +154,22 @@ window.addEventListener("DOMContentLoaded", () => {
         inputField();
         clearInterval(freeInterval)
       }
-
-      mixValue -= 1
-      freeMin = Math.floor(mixValue / 60);
-      freeSec = Math.floor(mixValue % 60);
+      
+      if (mixValue < 0) {
+        alert("時間です！")
+        color()
+        inputMin.value = ""
+        inputSec.value = ""
+        timeBtn();
+        inputField();
+        addTimeBtn();
+        clearInterval(freeInterval);
+        return;
+      }else{
+        freeMin = Math.floor(mixValue / 60);
+        freeSec = Math.floor(mixValue % 60);
+        mixValue -= 1;
+      }
       
       // 10分以下の表示
       if (freeMin < 10 ) {
@@ -171,17 +183,6 @@ window.addEventListener("DOMContentLoaded", () => {
         inputSec.value = `0${freeSec}`
       } else {
         inputSec.value = freeSec
-      }
-
-      if (mixValue < 0) {
-        alert("時間です！")
-        color()
-        inputMin.value = ""
-        inputSec.value = ""
-        timeBtn();
-        inputField();
-        addTimeBtn();
-        clearInterval(freeInterval);
       }
     }
 
@@ -218,6 +219,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // リセットボタンを押した際の処理
   freeReset.addEventListener("click", () => {
+    // リセットを押した後の色の切り替え
     freeReset.setAttribute("style", "color: #b84c00;")
     inputMin.value = "";
     inputSec.value = "";
