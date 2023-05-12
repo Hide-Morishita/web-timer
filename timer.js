@@ -8,6 +8,11 @@ window.addEventListener("DOMContentLoaded", () => {
   const add10 = document.getElementById("min-10")
   const add5 = document.getElementById("min-5")
   const add1 = document.getElementById("min-1")
+  const realTime = document.getElementById("real-time")
+
+  setInterval(()=>{
+    realTime.textContent = new Date().toLocaleString();
+  }, 100);
 
   // スタート、ストップ、リセットボタンの色切り替え
   const color = () => {
