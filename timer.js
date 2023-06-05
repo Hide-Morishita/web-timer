@@ -9,6 +9,10 @@ window.addEventListener("DOMContentLoaded", () => {
   const add5 = document.getElementById("min-5")
   const add1 = document.getElementById("min-1")
   const realTime = document.getElementById("real-time")
+  const alarm = new Audio("music/alarm.mp3")
+
+  // 再生位置を0に設定
+  alarm.currentTime = 0;
 
   setInterval(()=>{
     realTime.textContent = new Date().toLocaleString();
@@ -161,7 +165,7 @@ window.addEventListener("DOMContentLoaded", () => {
       }
       
       if (mixValue < 0) {
-        alert("時間です！")
+        alarm.play()
         color()
         inputMin.value = ""
         inputSec.value = ""
